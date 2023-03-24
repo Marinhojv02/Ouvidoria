@@ -1,22 +1,19 @@
 package NovaOuvidoria.Feedback;
 
+import NovaOuvidoria.Usuario.Aluno;
+import NovaOuvidoria.Usuario.Usuario;
+
 public class Feedback {
-    String tipo;
-    String feedback;
+    private String type;
+    private String feedback;
+    private String author;
+    private int Id;
 
-
-
-    public Feedback (String tipo, String feedback){
-        this.tipo = tipo;
+    public Feedback (String type, String feedback, String author, int id){
+        this.type = type;
         this.feedback = feedback;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+        this.author = author;
+        this.Id = id;
     }
 
     public String getFeedback() {
@@ -27,9 +24,36 @@ public class Feedback {
         this.feedback = feedback;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
     @Override
-    public String toString() {
-        String toString = String.format("Feedback: %s", getFeedback());
-        return toString;
+    public String toString(){
+
+        String feedbackString = this.Id + " -> tipo: " + this.type + "|\n" +
+                                "| " + this.feedback+ "|\n";
+
+        return feedbackString;
     }
 }

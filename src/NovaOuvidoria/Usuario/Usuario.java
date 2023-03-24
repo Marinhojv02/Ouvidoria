@@ -5,8 +5,17 @@ import NovaOuvidoria.Feedback.Feedback;
 import java.util.ArrayList;
 
 public class Usuario {
-    String nome;
-    String matricula;
+    private String nome;
+    private String matricula;
+    private String senha;
+    private String tipo;
+
+    public Usuario(String nome, String matricula, String senha, String tipo) {
+        this.nome = nome;
+        this.matricula = matricula;
+        this.senha = senha;
+        this.tipo = tipo;
+    }
 
     public String getNome() {
         return nome;
@@ -22,5 +31,13 @@ public class Usuario {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }
