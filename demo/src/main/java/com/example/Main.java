@@ -5,11 +5,11 @@ import com.example.entities.usuarios.*;
 import com.example.entities.util.*;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         displayStartingPage();
     }
 
-    private void displayStartingPage() {
+    private static void displayStartingPage() {
         Auth auth = Auth.getInstance();
         if (auth.getCurrentActive() == null) {
             showAuthPage();
@@ -23,7 +23,7 @@ public class Main {
         }
     }
 
-    private void showAuthPage() {
+    private static void showAuthPage() {
         String[] options = { "Login", "Create New User" };
         int choice = JOptionPane.showOptionDialog(null, "Choose an option:", "Authentication", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
@@ -35,7 +35,7 @@ public class Main {
         }
     }
 
-    private void handleLogin() {
+    private static void handleLogin() {
         Auth auth = Auth.getInstance();
         BancoUsuarios userList = BancoUsuarios.getInstance();
 
@@ -54,7 +54,7 @@ public class Main {
         }
     }
 
-    private void handleCreateNewUser() {
+    private static void handleCreateNewUser() {
         String[] options = { "Funcionario", "Aluno", "Colaborador" };
 
         String selectedOption = (String) JOptionPane.showInputDialog(
@@ -84,7 +84,7 @@ public class Main {
         }
     }
 
-    private void addProfessor() {
+    private static void addProfessor() {
         String nome = JOptionPane.showInputDialog("Digite o nome do usuário:");
         String telefone = JOptionPane.showInputDialog("Digite o telefone do usuário:");
         String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do usuário (YYYY-MM-DD):");
@@ -95,7 +95,7 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso:\n" + usuario.getNome());
     }
 
-    private void addColaborador() {
+    private static void addColaborador() {
         String nome = JOptionPane.showInputDialog("Digite o nome do usuário:");
         String telefone = JOptionPane.showInputDialog("Digite o telefone do usuário:");
         String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do usuário (YYYY-MM-DD):");
@@ -106,7 +106,7 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso:\n" + usuario.getNome());
     }
 
-    private void addAluno() {
+    private static void addAluno() {
         String nome = JOptionPane.showInputDialog("Digite o nome do aluno:");
         String telefone = JOptionPane.showInputDialog("Digite o telefone do aluno:");
         String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do aluno (YYYY-MM-DD):");
@@ -119,12 +119,12 @@ public class Main {
         JOptionPane.showMessageDialog(null, "Aluno adicionado com sucesso:\n" + aluno.getNome() + "\nMédia: " + aluno.getMedia());
     }
 
-    private void showStudentScreen() {
+    private static void showStudentScreen() {
         JOptionPane.showMessageDialog(null, "Welcome to Student Screen!");
         // Implement student screen functionality (e.g., display student-specific options)
     }
 
-    private void showWorkerScreen() {
+    private static void showWorkerScreen() {
         JOptionPane.showMessageDialog(null, "Welcome to Worker Screen!");
         // Implement worker screen functionality (e.g., display worker-specific options)
     }
