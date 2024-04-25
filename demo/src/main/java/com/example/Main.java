@@ -112,6 +112,8 @@ public class Main {
 
     private static void addProfessor() {
         try{
+            BancoUsuarios userList = BancoUsuarios.getInstance();
+
             String nome = JOptionPane.showInputDialog("Digite o nome do usuário:");
             String telefone = JOptionPane.showInputDialog("Digite o telefone do usuário:");
             String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do usuário (YYYY-MM-DD):");
@@ -119,6 +121,7 @@ public class Main {
 
             Usuario usuario = new Professor(nome, telefone, dataNascimento, CargaHoraria);
 
+            userList.addUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso:\n" + usuario.getNome());
         }catch(Exception e){
             System.out.println(e);
@@ -128,6 +131,8 @@ public class Main {
 
     private static void addColaborador() {
         try{
+            BancoUsuarios userList = BancoUsuarios.getInstance();
+
             String nome = JOptionPane.showInputDialog("Digite o nome do usuário:");
             String telefone = JOptionPane.showInputDialog("Digite o telefone do usuário:");
             String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do usuário (YYYY-MM-DD):");
@@ -135,6 +140,7 @@ public class Main {
 
             Colaborador usuario = new Colaborador(nome, telefone, dataNascimento, CargaHoraria);
 
+            userList.addUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Usuário adicionado com sucesso:\n" + usuario.getNome());
         }catch(Exception e){
             System.out.println(e);
@@ -144,6 +150,8 @@ public class Main {
 
     private static void addAluno() {
         try{
+            BancoUsuarios userList = BancoUsuarios.getInstance();
+
             String nome = JOptionPane.showInputDialog("Digite o nome do aluno:");
             String telefone = JOptionPane.showInputDialog("Digite o telefone do aluno:");
             String dataNascimento = JOptionPane.showInputDialog("Digite a data de nascimento do aluno (YYYY-MM-DD):");
@@ -151,9 +159,10 @@ public class Main {
 
             double media = Double.parseDouble(mediaStr);
 
-            Aluno aluno = new Aluno(nome, telefone, dataNascimento, media);
+            Aluno usuario = new Aluno(nome, telefone, dataNascimento, media);
 
-            JOptionPane.showMessageDialog(null, "Aluno adicionado com sucesso:\n" + aluno.getNome() + "\nMédia: " + aluno.getMedia());
+            userList.addUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Aluno adicionado com sucesso:\n" + usuario.getNome() + "\nMédia: " + usuario.getMedia());
         }catch(Exception e){
             System.out.println(e);
             displayStartingPage();
